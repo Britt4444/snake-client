@@ -1,7 +1,13 @@
+const net = require('net');
+
 const connect = function () {
   const conn = net.createConnection({
     host: 'localhost',
     port: 50541,
+  });
+  conn.on("connect", () => {
+    console.log("Succesfully connected to game server");
+    console.log("Name: RLI");
   });
   conn.setEncoding("utf8");
   conn.on("data", (data) => {
