@@ -1,3 +1,4 @@
+const { MOVE_UP_KEY, MOVE_LEFT_KEY, MOVE_DOWN_KEY, MOVE_RIGHT_KEY, MESSAGES } = require('./constants.js');
 // set up undefined variable to store active TCP connection object
 let connection;
 
@@ -13,23 +14,17 @@ const setupInput = (conn) => {
 
 const handleUserInput = (key) => {
   // movement keys
-  if (key === '\u0077') {
+  if (key === MOVE_UP_KEY) {
     connection.write("Move: up");
-  } else if (key === '\u0061') {
+  } else if (key === MOVE_LEFT_KEY) {
     connection.write("Move: left");
-  } else if (key === '\u0073') {
+  } else if (key === MOVE_DOWN_KEY) {
     connection.write("Move: down");
-  } else if (key === '\u0064') {
+  } else if (key === MOVE_RIGHT_KEY) {
     connection.write("Move: right");
-  } else if (key === '\u0031') {
-    // banter keys
-    connection.write("Say: Hissssssss");
-  } else if (key === '\u0032') {
-    connection.write("Say: Catch me if you can");
-  } else if (key === '\u0033') {
-    connection.write("Say: I can nom all day");
-  } else if (key === '\u0035') {
-    connection.write("Say: I am sssspeed");
+    // banter keys using object mapping
+  } else if (MESSAGES[key]) {
+    connection.write(MESSAGES[key]);
   } else if (key === '\u0003') {
     process.exit();
   }
