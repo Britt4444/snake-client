@@ -8,33 +8,12 @@ const connect = function() {
   });
   conn.on("connect", () => {
     console.log("Succesfully connected to game server");
-    console.log("Name: RLI");
-
-    // Move snake immediately on connection
-    // conn.write("Move: up");
-
-    // Move snake up every 50 ms with setTimeout
-    // setTimeout(() => {
-    //   conn.write("Move: up");
-    // }, 50);
-    // setTimeout(() => {
-    //   conn.write("Move: up");
-    // }, 550);
-    // setTimeout(() => {
-    //   conn.write("Move: up");
-    // }, 600);
-    // setTimeout(() => {
-    //   conn.write("Move: up");
-    // }, 650);
-
-    // Trial with setInterval: snake crashes because no clearInterval
-    // setInterval(() => {
-    //   conn.write("Move: up");
-    // });
+    conn.write("Name: RLI");
   });
   conn.setEncoding("utf8");
   conn.on("data", (data) => {
     console.log("Server says: ", data);
+    process.exit();
   });
   return conn;
 };
