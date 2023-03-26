@@ -11,7 +11,7 @@ const MESSAGES = {
   '\u0032': "Say: Catch me if you can",
   '\u0033': "Say: I can nom all day",
   '\u0035': "Say: I am sssspeed",
-}
+};
 
 
 module.exports = {

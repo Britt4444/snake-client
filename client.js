@@ -2,7 +2,6 @@ const net = require('net');
 const { IP, PORT } = require('./constants.js');
 
 const connect = function() {
-  console.log("Inside connect function");
   const conn = net.createConnection({
     host: IP,
     port: PORT,
